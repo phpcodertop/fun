@@ -4,14 +4,10 @@ $theWorld = new World();
 // get only women for marriage
 $allWomens = $theWorld->getAllWomenForMarriage(); 
 // define my women characters 
-$myWomenCharacters = [
-    'Religious',
-    'Beautiful',
-    'Programmer'
-];
+$myWomenCharacters = ['Religious','Beautiful','Programmer'];
 $possibleWomens = array();
 // check if any women characters is equal or more than my desired characters
-foreach($woman as $women){
+foreach($allWomens as $woman){
     if(array_intersect($woman->getCharacters(),$myWomenCharacters) >= count($myWomenCharacters)){
         array_push($possibleWomens,$women);
     }
@@ -19,8 +15,8 @@ foreach($woman as $women){
 $myPossibilities = count($possibleWomens);
 // if there possible women try to seek god and try to marry else stay single
 if(count($myPossibilities) > 0){
-    $married = false;
-    while($married == false){
+    $married = FALSE;
+    while($married == FALSE){
         $randomWomen = array_rand($possibleWomens);
         if(GODseek($randomWomen) == TRUE){
             $married = TRUE;
